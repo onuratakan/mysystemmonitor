@@ -1,46 +1,57 @@
 from setuptools import setup
 
 
-setup(name='get_crypto_price',
+setup(name='systemmonitor',
 version='0.1.0',
-description="""A library to getting crypto price.""",
+description="""A library to monitoring system.""",
 long_description="""
-# Get Crypto Price
-A library to getting crypto price.
+# System Monitor
+A library to monitoring system.
 # Install
 ```
-pip3 install get-crypto-price
+pip3 install systemmonitor
 ```
 # Using
 ## In another script
 ```python
-from get_crypto_price import get
-# get(source = "bitstamp", pair = "btcusdt")
-print(get())
+from systemmonitor import systemmonitor
+
+#  systemmonitor(interval=2, nosystemload=False, nomemoryusage=False, nodiskusage=False)
+monitor = systemmonitor()
+
+print(monitor.system_load())
+print(monitor.memory_usage())
+print(monitor.disk_usage())
+
+#or you can use monitoring
+
+monitor.run()
+
 ```
 ## In command line
 ```console
-  -h, --help            show this help message and exit
-  -s SOURCE, --source SOURCE
-                        Source
-  -p PAIR, --pair PAIR  Pair
+systemmonitor run
 ```
+
+parameters:
 ```console
-get_crypto_price
+systemmonitor run --interval 1 --nosystemload False --nomemoryusage False --nodiskusage False
 ```
 """,
 long_description_content_type='text/markdown',
-url='https://github.com/onuratakan/get_crypto_price',
+url='https://github.com/onuratakan/systemmonitor',
 author='Onur Atakan ULUSOY',
 author_email='atadogan06@gmail.com',
 license='MIT',
-packages=["get_crypto_price"],
+packages=["systemmonitor"],
 package_dir={'':'src'},
 install_requires=[
-    "requests==2.25.1"
+    "tqdm==4.64.1",
+    "fire==0.5.0",
+    "psutil==5.9.4"
 ],
 entry_points = {
-    'console_scripts': ['get_crypto_price=get_crypto_price.get_crypto_price:get'],
+    'console_scripts': ['systemmonitor=systemmonitor.systemmonitor:main'],
 },
 python_requires=">= 3",
 zip_safe=False)

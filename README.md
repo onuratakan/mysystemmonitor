@@ -1,23 +1,32 @@
-# Get Crypto Price
-A library to getting crypto price.
+# System Monitor
+A library to monitoring system.
 # Install
 ```
-pip3 install get-crypto-price
+pip3 install systemmonitor
 ```
 # Using
 ## In another script
 ```python
-from get_crypto_price import get
-# get(source = "bitstamp", pair = "btcusdt")
-print(get())
+from systemmonitor import systemmonitor
+
+#  systemmonitor(interval=2, nosystemload=False, nomemoryusage=False, nodiskusage=False)
+monitor = systemmonitor()
+
+print(monitor.system_load())
+print(monitor.memory_usage())
+print(monitor.disk_usage())
+
+#or you can use monitoring
+
+monitor.run()
+
 ```
 ## In command line
 ```console
-  -h, --help            show this help message and exit
-  -s SOURCE, --source SOURCE
-                        Source
-  -p PAIR, --pair PAIR  Pair
+systemmonitor run
 ```
+
+parameters:
 ```console
-get_crypto_price
+systemmonitor run --interval 1 --nosystemload False --nomemoryusage False --nodiskusage False
 ```
