@@ -4,7 +4,7 @@ import psutil
 import time
 import fire
 
-class systemmonitor:
+class mysystemmonitor:
     def __init__(self, interval=2, nosystemload=False, nomemoryusage=False, nodiskusage=False):
         self.total = 100
         self.interval = interval
@@ -49,4 +49,4 @@ class systemmonitor:
             time.sleep(self.interval)
 
 def main():
-    fire.Fire(systemmonitor)
+    fire.Fire(mysystemmonitor)
