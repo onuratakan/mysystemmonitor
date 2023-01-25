@@ -14,15 +14,21 @@ class mysystemmonitor:
         self.nodiskusage = nodiskusage
 
     def system_load(self):
-        load = psutil.getloadavg()
-        return (load[0] / psutil.cpu_count()) * 100
+        if os.name == 'nt':
+            return psutil.cpu_percent()
+        else:
+            load = psutil.getloadavg()
+            return (load[0] / psutil.cpu_count()) * 100
 
     def memory_usage(self):
         memory = psutil.virtual_memory()
         return memory.percent
 
     def disk_usage(self):
-        disk = psutil.disk_usage('/')
+        if os.name == 'nt':
+            disk = psutil.disk_usage('C:')
+        else:
+            disk = psutil.disk_usage('/')
         return disk.percent
 
     def clear(self):
