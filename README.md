@@ -1,16 +1,16 @@
-# System Monitor
+# My System Monitor
 A library to monitoring system.
 # Install
 ```
-pip3 install systemmonitor
+pip3 install mysystemmonitor
 ```
 # Using
 ## In another script
 ```python
-from systemmonitor import systemmonitor
+from mysystemmonitor import mysystemmonitor
 
-#  systemmonitor(interval=2, nosystemload=False, nomemoryusage=False, nodiskusage=False)
-monitor = systemmonitor()
+#  mysystemmonitor(interval=2, nosystemload=False, nomemoryusage=False, nodiskusage=False)
+monitor = mysystemmonitor()
 
 print(monitor.system_load())
 print(monitor.memory_usage())
@@ -23,10 +23,10 @@ monitor.run()
 ```
 ## In command line
 ```console
-systemmonitor run
+mysystemmonitor run
 ```
 
 parameters:
 ```console
-systemmonitor run --interval 1 --nosystemload False --nomemoryusage False --nodiskusage False
+mysystemmonitor run --interval 1 --nosystemload False --nomemoryusage False --nodiskusage False
 ```

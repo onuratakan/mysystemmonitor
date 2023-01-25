@@ -5,7 +5,7 @@ setup(name='mysystemmonitor',
 version='0.1.0',
 description="""A library to monitoring system.""",
 long_description="""
-# System Monitor
+# My System Monitor
 A library to monitoring system.
 # Install
 ```
