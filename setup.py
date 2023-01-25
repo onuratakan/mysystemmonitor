@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(name='mysystemmonitor',
-version='0.2.0',
+version='0.2.1',
 description="""A library to monitoring system.""",
 long_description="""
 # My System Monitor
