@@ -14,11 +14,7 @@ class mysystemmonitor:
         self.nodiskusage = nodiskusage
 
     def system_load(self):
-        if os.name == 'nt':
-            return psutil.cpu_percent()
-        else:
-            load = psutil.getloadavg()
-            return (load[0] / psutil.cpu_count()) * 100
+        return psutil.cpu_percent()
 
     def memory_usage(self):
         memory = psutil.virtual_memory()
